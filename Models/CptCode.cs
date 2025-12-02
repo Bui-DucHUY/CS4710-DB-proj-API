@@ -11,5 +11,5 @@ public partial class CptCode
 
     public string? Category { get; set; }
 
-    public virtual ICollection<ClinicService> ClinicServices { get; set; } = new List<ClinicService>();
+    //public virtual ICollection<ClinicService> ClinicServices { get; set; } = new List<ClinicService>();
 }
