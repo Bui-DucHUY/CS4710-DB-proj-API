@@ -21,20 +21,50 @@ namespace APIs.Controllers
             return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
         }
 
+        // Keep GetAll for dropdowns (lightweight list)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Provider>>> GetAll()
         {
-            try
+            using var connection = GetConnection();
+            await connection.OpenAsync();
+            return Ok(await connection.QueryAsync<Provider>("SELECT * FROM Providers"));
+        }
+
+        // --- NEW: Search & Pagination ---
+        [HttpGet("search")]
+        public async Task<IActionResult> Search([FromQuery] string? term = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            using var connection = GetConnection();
+            await connection.OpenAsync();
+            var offset = (page - 1) * pageSize;
+
+            // Search by Name or Specialty
+            var sqlData = @"
+                SELECT * FROM Providers
+                WHERE (@Term IS NULL 
+                       OR FirstName LIKE '%' + @Term + '%' 
+                       OR LastName LIKE '%' + @Term + '%'
+                       OR Specialty LIKE '%' + @Term + '%')
+                ORDER BY LastName, FirstName
+                OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
+
+            var sqlCount = @"
+                SELECT COUNT(*) FROM Providers
+                WHERE (@Term IS NULL 
+                       OR FirstName LIKE '%' + @Term + '%' 
+                       OR LastName LIKE '%' + @Term + '%'
+                       OR Specialty LIKE '%' + @Term + '%')";
+
+            var multi = await connection.QueryMultipleAsync(
+                sqlData + ";" + sqlCount,
+                new { Term = term, Offset = offset, PageSize = pageSize });
+
+            return Ok(new
             {
-                using var connection = GetConnection();
-                await connection.OpenAsync();
-                var providers = await connection.QueryAsync<Provider>("SELECT * FROM Providers");
-                return Ok(providers);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Error = "DB Error", Details = ex.Message });
-            }
+                Data = await multi.ReadAsync<Provider>(),
+                TotalCount = await multi.ReadFirstAsync<int>(),
+                Page = page
+            });
         }
 
         [HttpGet("{id}")]
@@ -42,9 +72,7 @@ namespace APIs.Controllers
         {
             using var connection = GetConnection();
             await connection.OpenAsync();
-            var result = await connection.QueryFirstOrDefaultAsync<Provider>(
-                "SELECT * FROM Providers WHERE ProviderID = @Id", new { Id = id });
-
+            var result = await connection.QueryFirstOrDefaultAsync<Provider>("SELECT * FROM Providers WHERE ProviderID = @Id", new { Id = id });
             if (result == null) return NotFound();
             return Ok(result);
         }
@@ -83,6 +111,54 @@ namespace APIs.Controllers
             await connection.OpenAsync();
             await connection.ExecuteAsync("DELETE FROM Providers WHERE ProviderID = @Id", new { Id = id });
             return NoContent();
+        }
+
+        // --- NEW: Capabilities Management ---
+
+        public class ProviderCapability
+        {
+            public int ProviderID { get; set; }
+            public int ServiceID { get; set; }
+        }
+
+        [HttpGet("capabilities")]
+        public async Task<ActionResult<IEnumerable<ProviderCapability>>> GetAllCapabilities()
+        {
+            using var connection = GetConnection();
+            await connection.OpenAsync();
+            // Fetch all capabilities for the frontend to filter
+            return Ok(await connection.QueryAsync<ProviderCapability>("SELECT * FROM Provider_Capabilities"));
+        }
+
+        [HttpPost("{id}/capabilities")]
+        public async Task<IActionResult> UpdateCapabilities(int id, [FromBody] List<int> serviceIds)
+        {
+            using var connection = GetConnection();
+            await connection.OpenAsync();
+            using var transaction = connection.BeginTransaction();
+
+            try
+            {
+                // 1. Wipe existing capabilities for this provider
+                await connection.ExecuteAsync(
+                    "DELETE FROM Provider_Capabilities WHERE ProviderID = @Pid",
+                    new { Pid = id }, transaction);
+
+                // 2. Insert new selection (if any)
+                if (serviceIds != null && serviceIds.Any())
+                {
+                    var sql = "INSERT INTO Provider_Capabilities (ProviderID, ServiceID) VALUES (@Pid, @Sid)";
+                    await connection.ExecuteAsync(sql, serviceIds.Select(sid => new { Pid = id, Sid = sid }), transaction);
+                }
+
+                transaction.Commit();
+                return Ok();
+            }
+            catch
+            {
+                transaction.Rollback();
+                return StatusCode(500, "Error updating capabilities");
+            }
         }
     }
 }

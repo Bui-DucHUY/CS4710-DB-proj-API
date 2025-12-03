@@ -21,12 +21,64 @@ namespace APIs.Controllers
             return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
         }
 
+        // KEEP THIS for legacy support if needed, but we will use the new search endpoint
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BilledEvent>>> GetAll()
         {
             using var connection = GetConnection();
             await connection.OpenAsync();
-            return Ok(await connection.QueryAsync<BilledEvent>("SELECT * FROM Billed_Events"));
+            return Ok(await connection.QueryAsync<BilledEvent>("SELECT * FROM Billed_Events ORDER BY DateOfService DESC"));
+        }
+
+        // --- NEW: Server-Side Search & Pagination ---
+        [HttpGet("search")]
+        public async Task<IActionResult> Search(
+            [FromQuery] string? term = null,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10)
+        {
+            using var connection = GetConnection();
+            await connection.OpenAsync();
+
+            var offset = (page - 1) * pageSize;
+
+            // This query Joins tables solely for filtering purposes, 
+            // but still selects the BilledEvent object structure.
+            var sqlData = @"
+                SELECT be.* FROM Billed_Events be
+                JOIN Providers p ON be.ProviderID = p.ProviderID
+                JOIN Clinic_Services s ON be.ServiceID = s.ServiceID
+                WHERE (@Term IS NULL 
+                       OR (p.FirstName + ' ' + p.LastName) LIKE '%' + @Term + '%'
+                       OR s.ServiceName LIKE '%' + @Term + '%'
+                       OR CAST(be.EventID AS NVARCHAR) LIKE '%' + @Term + '%')
+                ORDER BY be.DateOfService DESC
+                OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
+
+            var sqlCount = @"
+                SELECT COUNT(*) 
+                FROM Billed_Events be
+                JOIN Providers p ON be.ProviderID = p.ProviderID
+                JOIN Clinic_Services s ON be.ServiceID = s.ServiceID
+                WHERE (@Term IS NULL 
+                       OR (p.FirstName + ' ' + p.LastName) LIKE '%' + @Term + '%'
+                       OR s.ServiceName LIKE '%' + @Term + '%'
+                       OR CAST(be.EventID AS NVARCHAR) LIKE '%' + @Term + '%')";
+
+            var multi = await connection.QueryMultipleAsync(
+                sqlData + ";" + sqlCount,
+                new { Term = term, Offset = offset, PageSize = pageSize });
+
+            var items = await multi.ReadAsync<BilledEvent>();
+            var total = await multi.ReadFirstAsync<int>();
+
+            return Ok(new
+            {
+                Data = items,
+                TotalCount = total,
+                Page = page,
+                PageSize = pageSize
+            });
         }
 
         [HttpPost]
@@ -42,6 +94,22 @@ namespace APIs.Controllers
             var id = await connection.ExecuteScalarAsync<int>(sql, billedEvent);
             billedEvent.EventID = id;
             return Ok(billedEvent);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, BilledEvent billedEvent)
+        {
+            if (id != billedEvent.EventID) return BadRequest();
+
+            using var connection = GetConnection();
+            await connection.OpenAsync();
+            var sql = @"
+                UPDATE Billed_Events 
+                SET ServiceID = @ServiceID, ProviderID = @ProviderID, DateOfService = @DateOfService, BilledAmount = @BilledAmount
+                WHERE EventID = @EventID";
+
+            await connection.ExecuteAsync(sql, billedEvent);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

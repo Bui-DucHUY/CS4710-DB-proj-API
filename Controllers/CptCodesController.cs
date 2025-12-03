@@ -29,14 +29,14 @@ namespace APIs.Controllers
             return Ok(await connection.QueryAsync<CptCode>("SELECT * FROM CPT_Codes"));
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Create(CptCode code)
-        {
-            using var connection = GetConnection();
-            await connection.OpenAsync();
-            var sql = "INSERT INTO CPT_Codes (CPTCode, Descript, Category) VALUES (@CPTCode, @Descript, @Category)";
-            await connection.ExecuteAsync(sql, code);
-            return Ok();
-        }
+        //[HttpPost]
+        //public async Task<ActionResult> Create(CptCode code)
+        //{
+        //    using var connection = GetConnection();
+        //    await connection.OpenAsync();
+        //    var sql = "INSERT INTO CPT_Codes (CPTCode, Descript, Category) VALUES (@CPTCode, @Descript, @Category)";
+        //    await connection.ExecuteAsync(sql, code);
+        //    return Ok();
+        //}
     }
 }
