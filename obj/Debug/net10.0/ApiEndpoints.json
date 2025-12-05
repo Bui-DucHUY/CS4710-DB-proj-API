@@ -279,22 +279,6 @@
     ]
   },
   {
-    "ContainingType": "APIs.Controllers.CptCodesController",
-    "Method": "Create",
-    "RelativePath": "api/CptCodes",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "code",
-        "Type": "APIs.Models.CptCode",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "APIs.Controllers.ProvidersController",
     "Method": "GetAll",
     "RelativePath": "api/Providers",

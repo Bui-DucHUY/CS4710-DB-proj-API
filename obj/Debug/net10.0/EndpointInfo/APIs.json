@@ -481,35 +481,6 @@
             }
           }
         }
-      },
-      "post": {
-        "tags": [
-          "CptCodes"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CptCode"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CptCode"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CptCode"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
     "/api/Providers": {

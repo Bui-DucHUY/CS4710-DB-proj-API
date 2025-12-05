@@ -21,16 +21,14 @@ namespace APIs.Controllers
             return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
         }
 
-        // KEEP THIS for legacy support if needed, but we will use the new search endpoint
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BilledEvent>>> GetAll()
+        public async Task<ActionResult<IEnumerable<BilledEvent>>> GetAll() //unused, keep for reference
         {
             using var connection = GetConnection();
             await connection.OpenAsync();
             return Ok(await connection.QueryAsync<BilledEvent>("SELECT * FROM Billed_Events ORDER BY DateOfService DESC"));
         }
 
-        // --- NEW: Server-Side Search & Pagination ---
         [HttpGet("search")]
         public async Task<IActionResult> Search(
             [FromQuery] string? term = null,

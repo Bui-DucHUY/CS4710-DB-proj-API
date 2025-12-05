@@ -21,7 +21,6 @@ namespace APIs.Controllers
             return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
         }
 
-        // Keep GetAll for dropdowns (lightweight list)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Provider>>> GetAll()
         {
@@ -30,7 +29,6 @@ namespace APIs.Controllers
             return Ok(await connection.QueryAsync<Provider>("SELECT * FROM Providers"));
         }
 
-        // --- NEW: Search & Pagination ---
         [HttpGet("search")]
         public async Task<IActionResult> Search([FromQuery] string? term = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
@@ -38,7 +36,6 @@ namespace APIs.Controllers
             await connection.OpenAsync();
             var offset = (page - 1) * pageSize;
 
-            // Search by Name or Specialty
             var sqlData = @"
                 SELECT * FROM Providers
                 WHERE (@Term IS NULL 
@@ -113,7 +110,6 @@ namespace APIs.Controllers
             return NoContent();
         }
 
-        // --- NEW: Capabilities Management ---
 
         public class ProviderCapability
         {
@@ -126,7 +122,6 @@ namespace APIs.Controllers
         {
             using var connection = GetConnection();
             await connection.OpenAsync();
-            // Fetch all capabilities for the frontend to filter
             return Ok(await connection.QueryAsync<ProviderCapability>("SELECT * FROM Provider_Capabilities"));
         }
 
@@ -139,12 +134,10 @@ namespace APIs.Controllers
 
             try
             {
-                // 1. Wipe existing capabilities for this provider
                 await connection.ExecuteAsync(
                     "DELETE FROM Provider_Capabilities WHERE ProviderID = @Pid",
                     new { Pid = id }, transaction);
 
-                // 2. Insert new selection (if any)
                 if (serviceIds != null && serviceIds.Any())
                 {
                     var sql = "INSERT INTO Provider_Capabilities (ProviderID, ServiceID) VALUES (@Pid, @Sid)";

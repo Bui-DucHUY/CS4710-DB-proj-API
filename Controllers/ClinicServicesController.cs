@@ -29,7 +29,6 @@ namespace APIs.Controllers
             return Ok(await connection.QueryAsync<ClinicService>("SELECT * FROM Clinic_Services"));
         }
 
-        // --- NEW: Search & Pagination ---
         [HttpGet("search")]
         public async Task<IActionResult> Search([FromQuery] string? term = null, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
@@ -37,7 +36,6 @@ namespace APIs.Controllers
             await connection.OpenAsync();
             var offset = (page - 1) * pageSize;
 
-            // Search by Name or CPT Code
             var sqlData = @"
                 SELECT * FROM Clinic_Services
                 WHERE (@Term IS NULL 

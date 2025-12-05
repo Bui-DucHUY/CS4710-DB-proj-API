@@ -4,7 +4,6 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- Services ---
 builder.Services.AddControllers();
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -19,7 +18,6 @@ builder.Services.AddCors(options =>
                       });
 });
 
-// Authentication/Authorization
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
@@ -28,7 +26,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// --- Pipeline ---
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
