@@ -1,8 +1,8 @@
 # CS4710-DB-proj-API
 
-> Database Project API for CS4710
+> Database Project API for CSC4710
 
-This repository provides a RESTful API for managing and accessing data related to the CS4710 course database project.
+This repository provides a RESTful API for managing and accessing data related to the CSC 4710 course database project.
 
 ## Features
 
@@ -84,7 +84,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 Project maintained by [Bui-DucHUY](https://github.com/Bui-DucHUY)
-
----
-
-*Please update this README with more detailed information about the project, setup instructions, and API reference as your project evolves.*
