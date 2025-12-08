@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\controllers\\clinicservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:controllers\\clinicservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\controllers\\providerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:controllers\\providerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\controllers\\cptcodescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:controllers\\cptcodescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\controllers\\billedeventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:controllers\\billedeventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\models\\provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:models\\provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\models\\cptcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:models\\cptcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\models\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:models\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|c:\\users\\buidu\\onedrive\\dev\\dev.sql\\4710\\apis\\models\\billedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62049314-86EE-4607-9401-20303F9D8F03}|APIs.csproj|solutionrelative:models\\billedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +34,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T23:52:22.767Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Provider.cs",
-              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\Provider.cs",
-              "RelativeDocumentMoniker": "Models\\Provider.cs",
-              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\Provider.cs",
-              "RelativeToolTip": "Models\\Provider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ProvidersController.cs",
+              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\ProvidersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProvidersController.cs",
+              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\ProvidersController.cs",
+              "RelativeToolTip": "Controllers\\ProvidersController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T23:52:19.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T02:28:34.466Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CptCode.cs",
-              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\CptCode.cs",
-              "RelativeDocumentMoniker": "Models\\CptCode.cs",
-              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\CptCode.cs",
-              "RelativeToolTip": "Models\\CptCode.cs",
+              "Title": "CptCodesController.cs",
+              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\CptCodesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CptCodesController.cs",
+              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\CptCodesController.cs",
+              "RelativeToolTip": "Controllers\\CptCodesController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T23:52:17.825Z",
+              "WhenOpened": "2025-12-06T02:28:33.461Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClinicServicesController.cs",
+              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\ClinicServicesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClinicServicesController.cs",
+              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\ClinicServicesController.cs",
+              "RelativeToolTip": "Controllers\\ClinicServicesController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAUwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T02:28:32.513Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ClinicService.cs",
-              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\ClinicService.cs",
-              "RelativeDocumentMoniker": "Models\\ClinicService.cs",
-              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\ClinicService.cs",
-              "RelativeToolTip": "Models\\ClinicService.cs",
+              "Title": "BilledEventsController.cs",
+              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\BilledEventsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BilledEventsController.cs",
+              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Controllers\\BilledEventsController.cs",
+              "RelativeToolTip": "Controllers\\BilledEventsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T23:52:16.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T02:28:31.606Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BilledEvent.cs",
-              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\BilledEvent.cs",
-              "RelativeDocumentMoniker": "Models\\BilledEvent.cs",
-              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Models\\BilledEvent.cs",
-              "RelativeToolTip": "Models\\BilledEvent.cs",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-06T02:11:42.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\buidu\\OneDrive\\dev\\Dev.SQL\\4710\\APIs\\Program.cs",
+              "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T23:52:15.441Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T02:11:38.59Z"
             }
           ]
         }
