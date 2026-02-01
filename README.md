@@ -12,57 +12,7 @@ This repository provides a RESTful API for managing and accessing data related t
 - Error handling and input validation
 - Authentication/Authorization (if applicable)
 
-## Technologies Used
 
-- Programming Language: **Python** (assumed)
-- Framework: **Flask** / **FastAPI** (please update if different)
-- Database: **SQLite** / **PostgreSQL** / **MySQL** (update as needed)
-
-## Getting Started
-
-### Prerequisites
-
-Make sure you have the following installed:
-
-- Python 3.7+
-- Git
-- pip (Python package manager)
-- Database server (if required)
-
-### Installation
-
-1. **Clone the repository**
-    ```bash
-    git clone https://github.com/Bui-DucHUY/CS4710-DB-proj-API.git
-    cd CS4710-DB-proj-API
-    ```
-
-2. **Install dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Configure environment variables**
-    - Copy `.env.example` to `.env` and update the database connection settings.
-
-4. **Run Database Migrations**
-    - (Instructions for running migrations if using an ORM like SQLAlchemy or Django ORM)
-
-### Running the API Server
-
-```bash
-python app.py
-```
-or (if using Flask)
-```bash
-flask run
-```
-or (if using FastAPI)
-```bash
-uvicorn main:app --reload
-```
-
-The server should now be running at `http://localhost:5000/` (or as configured).
 
 ## API Documentation
 
